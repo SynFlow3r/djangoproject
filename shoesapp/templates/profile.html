@@ -1,0 +1,65 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'profile-style.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <title>Profile Page</title>
+</head>
+<body>
+    <div class='header'>
+        <div class="header-line">
+            <div class="menu">
+                <a href="#">
+                    <img src="{% static 'images/menu.png' %}" alt="Menu">
+                </a>
+            </div>
+
+            <div class="nav">
+                <a class='nav-item' href="#">MEN</a>
+                <a class='nav-item' href="#">WOMEN</a>
+            </div>
+
+            <div class='header-logo'>
+                <a href="/">
+                    <img src="{% static 'images/nike.png' %}" alt="Logo">
+                </a>
+            </div>
+
+            <div class="header-right">
+                <div class="loupe">
+                    <a href="#">
+                        <img src="{% static 'images/loupe.png' %}" alt="Search">
+                    </a>
+                </div>
+
+                <div class="user">
+                    <a href="#">
+                        <img src="{% static 'images/user.png' %}" alt="User">
+                    </a>
+                </div>
+
+                <div class="bag">
+                    <a href="#">
+                        <img src="{% static 'images/bag.png' %}" alt="Bag">
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="profile-page">
+            <div class="profile">
+                <h1>User Profile</h1>
+  <p>Username: {{ user.username }}</p>
+  <p>Email: {{ user.email }}</p>
+  <p>Birth Date: {{ profile.birth_date }}</p>
+  <p>Gender: {{ profile.gender }}</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

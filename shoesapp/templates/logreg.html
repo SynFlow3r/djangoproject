@@ -1,0 +1,78 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="{% static 'logreg-style.css' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('.register-link').click(function(event){
+                event.preventDefault();
+                $('.register-form').show();
+                $('.login-form').hide();
+            });
+            $('.login-link').click(function(event){
+                event.preventDefault();
+                $('.register-form').hide();
+                $('.login-form').show();
+            });
+            {% if form.errors %}
+                $('.register-form').show();
+                $('.login-form').hide();
+            {% else %}
+                $('.register-form').hide();
+                $('.login-form').show();
+            {% endif %}
+        });
+    </script>
+    <style>
+    </style>
+</head>
+<body>
+
+<div class='header'>
+    <div class="header-line">
+        <div class='header-logo'>
+            <a href="/">
+                <img src="{% static 'images/nike.png' %}" alt="">
+            </a>
+        </div>
+    </div>
+
+    <div class="ofni-block">
+        <div class="square"></div>
+        <div class="blur-square"></div>
+
+        <div class="login-page">
+            <div class="form">
+                <div class="form-square"></div>
+
+                <!-- Форма регистрации -->
+                <form class="register-form" method="POST" action="{% url 'login' %}" style="display:none;">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit" name="register">Register</button>
+                    <p class="message">Уже есть аккаунт? <a href="#" class="login-link">Войти</a></p>
+                </form>
+
+                <!-- Форма входа -->
+                <form class="login-form" method="POST" action="{% url 'login' %}">
+                    {% csrf_token %}
+                    <input type="text" name="username" placeholder="никнейм" required />
+                    <input type="password" name="password" placeholder="пароль" required />
+                    <button type="submit" name="login">войти</button>
+                    <p class="message">Нет аккаунта? <a href="#" class="register-link">Создать аккаунт</a></p>
+                    {% if login_error %}
+                    <p class="error">{{ login_error }}</p>
+                    {% endif %}
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

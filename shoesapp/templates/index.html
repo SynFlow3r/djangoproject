@@ -1,0 +1,447 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,800&family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <title>Магазин</title>
+</head>
+<body>
+
+<div class='header'>
+    <div class="header-line">
+            <div class="menu">
+            <a href="#">
+                <img src="{% static 'images/menu.png' %}" alt="">
+            </a>
+        </div>
+
+        <div class="nav">
+            <a class='nav-item' href="#">MEN</a>
+            <a class='nav-item' href="#">WOMEN</a>
+        </div>
+
+        <div class='header-logo'>
+            <img src="{% static 'images/nike.png' %}" alt="">
+        </div>
+
+        <div class="header-right">
+            <div class="loupe">
+                <a href="{% url 'login' %}">
+                    <img src="{% static 'images/loupe.png' %}" alt="">
+                </a>
+            </div>
+
+            <div class="user">
+                <a href="{% url 'login' %}">
+                    <img src="{% static 'images/user.png' %}" alt="">
+                </a>
+            </div>
+
+            <div class="bag">
+                <a href="{% url 'login' %}">
+                    <img src="{% static 'images/bag.png' %}" alt="">
+                </a>
+            </div>
+            </div>
+    </div>
+
+    <div class="main">
+        <div class="main-img">
+
+        <img src="{% static 'images/jordan1.png' %}">
+        </div>
+        <div class="main-text">AIR JORDAN 1 <br> RETRO RED
+            <div class="down-text">
+                <p class="cost">$199.99</p>
+               <a href="{% url 'cardpay' %}?name=AIR JORDAN 1 RETRO RED&price=199.99" class="detail-knopka">
+                More Details
+                <img src="{% static 'images/arrow.png' %}" alt="">
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="cards">
+    <div class="container">
+
+        <a href="#" class="cards-holder">
+
+            <div class="card">
+
+                <div class="card-image">
+                    <img class="card-img"src="{% static 'images/shoes1.png' %}">
+                </div>
+
+                <div class="card-title">
+                    NIKE COSMIC UNITY 2
+                </div>
+
+            </div>
+            <div class="card">
+
+                <div class="card-image2">
+                    <img class="card-img"src="{% static 'images/shoes2.png' %}">
+                </div>
+
+                <div class="card-title">
+                    NIKE SB DUNK HIGH
+                </div>
+
+            </div>
+            <div class="card">
+
+                <div class="card-image">
+                    <img class="card-img"src="{% static 'images/shoes3.png' %}">
+                </div>
+
+                <div class="card-title">
+                    NIKE DINAMO GO SE
+                </div>
+
+            </div>
+        </a>
+
+    </div>
+</div>
+
+<div class="info">
+
+    <div class="container">
+
+                <div class="info-title">
+                    THE ESSENCE<br>
+                    <span>HANDCRAFTED</span><br>
+                    OF FOOTWEAR.
+                    <div class="info-desc">
+                        <p>In terms of footwear, we are the first in Canada to have opened not simple "shops" but real company outlets that offer the same service as the artisan </p> <p>shops of yesteryear: this to make you go without fail every time you want to buy a pair of handmade genuine leather shoes.
+                            Without fear of making </p>  <p> mistakes and with the certainty that you will be able to wear them comfortably from the beginning. </p> <p>
+                        Are you also curious to find out why hundreds of people choose us every day?</p>
+                        <div class="knop-cont">
+                            <a href="#" class="info-knopka">
+                            Find Out More
+                            <img src="{% static 'images/arrow.png' %}" alt="">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+        <div class="info-images">
+            <img class="images1" src="{% static 'images/shoes4.png' %}">
+            <img class="images2" src="{% static 'images/vector 3.png' %}">
+            <img class="images3" src="{% static 'images/vector 4.png' %}">
+        </div>
+
+
+    </div>
+</div>
+
+<div class="catalog">
+
+    <div class="container">
+
+        <div class="catalog-names">
+
+            <div class="catalog-name-shoes">SHOES</div>
+            <div class="catalog-name-popular">POPULAR </div>
+        </div>
+
+        <div class="catalog-items1">
+
+            <div class="catalog-item">
+                <a href="#" class="item-image">
+                    <div class="price">
+                        <img src="{% static 'images/Circle.png' %}" class="circle-img">
+                        <img src="{% static 'images/Desk.png' %}" class="desk-image">
+                        <img src="{% static 'images/Product01.png' %}" class="item-img">
+                        <div class="price-cost">
+                            $159.99
+                        </div>
+                    </div>
+                </a>
+
+                <div class="item-text">
+                    <a href="#" class="item-btn">Nike Air Max Plus  3
+                    </a>
+                </div>
+
+            </div>
+            <div class="catalog-item">
+                <a href="#" class="item-image">
+                    <div class="price">
+                        <img src="{% static 'images/Circle.png' %}" class="circle-img">
+                        <img src="{% static 'images/Desk.png' %}" class="desk-image">
+                        <img src="{% static 'images/Product02.png' %}" class="item-img">
+                        <div class="price-cost">
+                            $180.99
+                        </div>
+                    </div>
+                </a>
+
+                <div class="item-text">
+                    <a href="#" class="item-btn">Air Jordan 4 Retro Lightning</a>
+                </div>
+
+            </div>
+            <div class="catalog-item">
+                <a href="#" class="item-image">
+                    <div class="price">
+                        <img src="{% static 'images/Circle.png' %}" class="circle-img">
+                        <img src="{% static 'images/Desk.png' %}" class="desk-image">
+                        <img src="{% static 'images/Product03.png' %}" class="item-img">
+                        <div class="price-cost">
+                            $214.99
+                        </div>
+                    </div>
+                </a>
+
+                <div class="item-text">
+                    <a href="#" class="item-btn">Air Jordan 13 Retro Court Purple</a>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="catalog-items2">
+
+            <div class="catalog-item">
+                <a href="#" class="item-image">
+                    <div class="price">
+                        <img src="{% static 'images/Circle.png' %}" class="circle-img">
+                        <img src="{% static 'images/Desk.png' %}" class="desk-image">
+                        <img src="{% static 'images/Product04.png' %}" class="item-img">
+                        <div class="price-cost">
+                            $179.99
+                        </div>
+                    </div>
+                </a>
+
+                <div class="item-text">
+                    <a href="#" class="item-btn">Air Jordan 1 AJKO Blue Red</a>
+                </div>
+
+            </div>
+            <div class="catalog-item">
+                <a href="#" class="item-image">
+                    <div class="price">
+                        <img src="{% static 'images/Circle.png' %}" class="circle-img">
+                        <img src="{% static 'images/Desk.png' %}" class="desk-image">
+                        <img src="{% static 'images/Product05.png' %}" class="item-img">
+                        <div class="price-cost">
+                            $112.99
+                        </div>
+                    </div>
+                </a>
+
+                <div class="item-text">
+                    <a href="#" class="item-btn">Yeezy Boost 350 V2 MX Rock</a>
+                </div>
+
+            </div>
+            <div class="catalog-item">
+                <a href="#" class="item-image">
+                    <div class="price">
+                        <img src="{% static 'images/Circle.png' %}" class="circle-img">
+                        <img src="{% static 'images/Desk.png' %}" class="desk-image">
+                        <img src="{% static 'images/Product06.png' %}" class="item-img">
+                        <div class="price-cost">
+                            $99.79
+                        </div>
+                    </div>
+                </a>
+
+                <div class="item-text">
+                    <a href="#" class="item-btn">Vans Old Skool Suede Honey Gold</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="catalog-button">
+            <a href="#" class="catalog-knopka">
+                More Shoes
+                <img src="{% static 'images/arrow.png' %}" alt="">
+            </a>
+        </div>
+
+    </div>
+</div>
+
+<div class="ofni">
+
+    <div class="container">
+
+        <div class="ofni-title">
+            <div class="ofni-block">
+                <div class="square"></div>
+                <div class="blur-square"></div>
+                <img src="{% static 'images/ofni-shoe.png' %}" class="ofni-img">
+            </div>
+            <span> WE PROVIDE MODERN <br> SHOES
+                <p>
+                    Design for the way you live your life. Atoms are beautiful in their <br>
+                    simplicity, supporting your feet with absolute comfort.
+                </p>
+            </span>
+        </div>
+
+        </div>
+
+    </div>
+</div>
+
+<div class="dsg">
+    <div class="container">
+            <div class="dsg-title">
+                <div class="dsg-image">
+                    <img src="{% static 'images/Picture.png' %}" class="dsg-img">
+                </div>
+                <h1 class="dsg-name"> WE ARE <span>VISIONARIES</span>
+                    <div class="dsg-text">
+                    <p>Exploring the boundaries of footwear with expert design knowledge and manufacture in mind.</p> <br>
+                    <p><strong>INSIGHTFUL CREATIVE DIRECTION:</strong> Uniting Consumer Insights with progressive
+                    manufacturing methods, we create comprehensive plans to outpace your competition.</p> <br>
+                    <p><strong>PURPOSEFUL DESIGN:</strong> We create products that captivate consumers and elevate brands. applying a refined sense of beauty and style, our designs are alluring. <br></p>
+                    <p><strong>RELENTLESS INNOVATION:</strong> We live to challenge the boundaries of convention and take advantage of every breakthrough opportunity big or small. we’ll help you define the cutting-edge of your business.</p>
+                    </div>
+                </h1>
+            </div>
+
+    </div>
+</div>
+
+<div class="coupon">
+    <div class="container">
+
+        <div class="coupon-box">
+            <div class="coupon-title">
+                <div class="coupon-name">
+                JOIN OUR NIKECLUB & GET <span>15%</span> OFF
+                <p>Sign up for free. Join the community, Never pay for shipping.</p>
+
+                <div class="coupon-button">
+                    <a href="#" class="coupon-knopka">
+                        Join Us
+                        <img src="{% static 'images/arrow.png' %}" alt="">
+                    </a>
+                </div>
+
+                </div>
+
+                <div class="coupon-logo">
+                     <img src="{% static 'images/nike.png' %}" class="cpn-lg">
+                </div>
+            </div>
+        </div>
+
+        <div class="coupon-image">
+            <img src="{% static 'images/shoes5.png' %}" class="cpn-img">
+            </div>
+
+    </div>
+</div>
+
+<div class="footer">
+    <div class="footer-top">
+        <div class="block1">
+            <img src="{% static 'images/delivery.png' %}" class="block1-img">
+            <div class="block1-text">
+                <strong>Free Delivery</strong> <br>From $100.89
+            </div>
+        </div>
+
+        <div class="block1">
+            <img src="{% static 'images/clock.png' %}" class="block2-img">
+            <div class="block1-text">
+                <strong>Free Withdrawal 1h</strong> <br>In Store
+            </div>
+        </div>
+
+        <div class="block1">
+            <img src="{% static 'images/security.png' %}" class="block3-img">
+            <div class="block1-text">
+                <strong>100% Secure Payment</strong> <br>At Your Service
+            </div>
+        </div>
+
+        <div class="block1">
+            <img src="{% static 'images/parcel.png' %}" class="block4-img">
+            <div class="block1-text">
+                <strong>Returns & Exchanges</strong> <br>Offered 365 Days
+            </div>
+        </div>
+
+
+    </div>
+
+    <div class="footer-mid">
+        <div class="block2">
+            <div class="block2-text">
+                <h1>Let’s stay in touch</h1>
+
+                <div class="email">
+
+                    <input class="email-text__inp" type="text" placeholder="Enter Email...">
+                    <button class="email-text__btn"> Subscribe </button>
+
+                </div>
+                <div class="nikee-log">
+                    <img class="nike-img" src="{% static 'images/nikelogo.png' %}">
+                </div>
+
+            </div>
+
+            <div class="help-menu">
+                <div class="shop">
+                    SHOP<br>
+                    <a href="#">Men</a><br>
+                    <a href="#">Women</a>
+                </div>
+                <div class="shop">
+                    OUR SERVICES<br>
+                    <a href="#">Customize your products</a><br>
+                    <a href="#">Gift Card</a><br>
+                    <a href="#">Maintain & Repair</a>
+                </div>
+                <div class="shop">
+                    NEED HELP?<br>
+                    <a href="#">My Account</a><br>
+                    <a href="#">Shipping</a><br>
+                    <a href="#">Return & Exchanges</a><br>
+                    <a href="#">FAQs</a><br>
+                    <a href="#">Rewards</a><br>
+                    <a href="#">Loyalty program</a><br>
+                    <a href="#">How to choose your product</a><br>
+                    <a href="#">Sports Trends</a>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        <div class="footer-bottom-text">
+            2022 Nike, Inc. All Rights Reserved
+            <div class="icon-img">
+            <a href="#" class="yt-img"> <img src="{% static 'images/youtube.png' %}"> </a>
+            <a href="#" class="fb-img"> <img src="{% static 'images/facebook.png' %}"> </a>
+            <a href="#" class="tw-img"> <img src="{% static 'images/twitter.png' %}"> </a>
+            <a href="#" class="in-img"> <img src="{% static 'images/instagram.png' %}"> </a>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+</html>

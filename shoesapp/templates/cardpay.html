@@ -1,0 +1,168 @@
+{% load static %}
+
+<!DOCTYPE html>
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Page</title>
+    <link rel="stylesheet" href="{% static 'cardpay-style.css' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+
+
+<div class="container">
+    <form class="payment-form" method="post" action="{% url 'cardpay' %}">
+        {% csrf_token %}
+        <h2>Оплата картой</h2>
+
+        <!-- Display Product Information -->
+        <div class="product-info">
+            <h3>Product: {{ product_name }}</h3>
+            <p>Price: ${{ product_price }}</p>
+        </div>
+
+        <label for="card-name">Имя на карте</label>
+        <input type="text" id="card-name" name="card-name" placeholder="Введите имя на карте" required>
+
+        <label for="card-number">Номер карты</label>
+        <input type="text" id="card-number" name="card-number" placeholder="Введите номер карты" required>
+
+        <div class="expiry-cvv">
+            <div class="expiry">
+                <label for="expiry-date">Срок действия</label>
+                <input type="text" id="expiry-date" name="expiry-date" placeholder="MM/YY" required>
+            </div>
+            <div class="cvv">
+                <label for="cvv">CVV</label>
+                <input type="text" id="cvv" name="cvv" placeholder="Введите CVV" required>
+            </div>
+        </div>
+
+        <input type="hidden" name="product-name" value="{{ product_name }}">
+        <input type="hidden" name="product-price" value="{{ product_price }}">
+
+        <button type="submit">Оплатить</button>
+    </form>
+</div>
+
+  <script>
+        $(document).ready(function() {
+        // Функция для проверки правильности введенного имени на карте
+        function validateCardName(cardName) {
+            // Проверка, содержит ли имя только буквы английского алфавита
+            return /^[A-Za-z\s]+$/.test(cardName);
+        }
+
+        // Функция для форматирования номера карты
+        function formatCardNumber(cardNumber) {
+            // Удаление всех нецифровых символов
+            var digits = cardNumber.replace(/\D/g, '');
+            // Разбиение номера карты на блоки по 4 цифры и добавление пробелов между ними
+            var formatted = digits.replace(/(\d{4})/g, '$1 ').trim();
+            return formatted;
+        }
+
+        // Функция для проверки правильности введенной даты
+        function validateExpiryDate(expiryDate) {
+            // Проверка, является ли дата в формате "MM/YY"
+            return /^\d{2}\/\d{2}$/.test(expiryDate);
+        }
+
+        // Функция для проверки правильности введенного CVV
+        function validateCVV(cvv) {
+            // Проверка, является ли CVV трехзначным числом
+            return /^\d{3}$/.test(cvv);
+        }
+
+        // Обработчик события input для поля имени на карте
+        $('#card-name').on('input', function() {
+        var cardName = $(this).val();
+        // Замена всех символов, не являющихся буквами латинского алфавита, на пустую строку
+        cardName = cardName.replace(/[^a-zA-Z\s]/g, '');
+        // Преобразование имени карты в верхний регистр
+        cardName = cardName.toUpperCase();
+        $(this).val(cardName);
+
+        // Проверка на правильность имени карты
+        if (cardName.length > 0) {
+            $(this).removeClass('invalid').addClass('valid');
+        } else {
+            $(this).removeClass('valid').addClass('invalid');
+        }
+    });
+
+
+
+        // Обработчик события input для поля номера карты
+        $('#card-number').on('input', function() {
+        var cardNumber = $(this).val();
+        // Удаление всех нецифровых символов
+        cardNumber = cardNumber.replace(/\D/g, '');
+        // Вставка пробела после каждых 4 цифр
+        cardNumber = cardNumber.replace(/(.{4})/g, '$1 ').trim();
+        // Ограничение длины ввода до 19 символов (16 цифр + 3 пробела)
+        cardNumber = cardNumber.slice(0, 19);
+        $(this).val(cardNumber);
+
+        // Проверка на правильность номера карты
+        if (cardNumber.length === 19) {
+            $(this).removeClass('invalid').addClass('valid');
+        } else {
+            $(this).removeClass('valid').addClass('invalid');
+        }
+    });
+
+
+
+        // Обработчик события input для поля срока действия
+        $('#expiry-date').on('input', function() {
+        var expiryDate = $(this).val();
+        // Удаление всех нецифровых символов
+        expiryDate = expiryDate.replace(/\D/g, '');
+        // Ограничение длины ввода до 4 символов
+        expiryDate = expiryDate.slice(0, 4);
+        // Добавление символа "/" после ввода двух цифр
+        if (expiryDate.length > 2) {
+            expiryDate = expiryDate.slice(0, 2) + '/' + expiryDate.slice(2);
+        }
+        $(this).val(expiryDate);
+        if (validateExpiryDate(expiryDate)) {
+            $(this).removeClass('invalid').addClass('valid');
+        } else {
+            $(this).removeClass('valid').addClass('invalid');
+        }
+    });
+
+
+
+
+    // Обработчик события input для поля CVV
+        $('#cvv').on('input', function() {
+        var cvv = $(this).val();
+        // Удаление всех нецифровых символов
+        cvv = cvv.replace(/\D/g, '');
+        // Ограничение длины ввода до 3 символов
+        cvv = cvv.slice(0, 3);
+        $(this).val(cvv);
+
+        // Проверка на правильность CVV
+        if (cvv.length === 3) {
+            $(this).removeClass('invalid').addClass('valid');
+        } else {
+            $(this).removeClass('valid').addClass('invalid');
+        }
+    });
+
+});
+
+
+    </script>
+
+</div>
+</body>
+</html>

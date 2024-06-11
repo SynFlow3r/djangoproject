@@ -1,0 +1,96 @@
+body {
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+    background-color: #f4f4f4;
+}
+
+.header {
+    background-image: url('/static/images/fon.png');
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header-line {
+    padding-top: 40px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.header-logo img {
+    max-width: 125px;
+    height: auto;
+}
+
+.header-logo, .header-right {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+}
+
+.header-right img {
+    max-width: 25px;
+    height: auto;
+    filter: invert(1);
+    margin-right: 60px;
+}
+
+.menu {
+    display: flex;
+    align-items: center;
+    margin-left: 40px;
+    transition: filter 0.1s ease;
+}
+
+.menu img {
+    max-width: 25px;
+    height: auto;
+    filter: invert(1);
+    margin-right: 30px;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    margin-left: 30px;
+}
+
+.nav-item {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 100;
+    font-size: 25px;
+    margin-right: 50px;
+    transition: color 0.1s ease;
+}
+
+.nav-item:hover {
+    color: red;
+}
+
+.profile-page {
+    width: 100%;
+    padding: 8% 0;
+    display: flex;
+    justify-content: center;
+}
+
+.profile {
+  background-color: rgba(186, 0, 0, 0.4);
+  border-radius: 20px 60px;
+  position: relative;
+  z-index: 1;
+  width: 1060px;
+  margin: 0 auto 100px;
+  padding: 45px;
+  text-align: center;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  color: white;
+}
